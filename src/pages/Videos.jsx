@@ -6,9 +6,7 @@ const Videos = () => {
 
 	return (
 		<>
-			<span className="text-3xl bg-gray-900 text-blue-500">
-				Videos : {keyword}
-			</span>
+			<span className="">Videos : {keyword}</span>
 		</>
 	);
 };
