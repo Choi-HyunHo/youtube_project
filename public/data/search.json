@@ -314,34 +314,7 @@
                 "publishTime": "2023-03-21T15:00:31Z"
             }
         },
-        {
-            "kind": "youtube#searchResult",
-            "etag": "MIFPkp7LVvjC3I_IgxgDbOgEepc",
-            "id": {
-                "kind": "youtube#channel",
-                "channelId": "UCRE-097LGtx_Zo7LrHvkycA"
-            },
-            "snippet": {
-                "publishedAt": "2022-11-11T08:52:30Z",
-                "channelId": "UCRE-097LGtx_Zo7LrHvkycA",
-                "title": "행복지수 103%",
-                "description": "",
-                "thumbnails": {
-                    "default": {
-                        "url": "https://yt3.ggpht.com/b53AyTQdjkbwGMJJbOoph7dXhEzavqDGykGKd_aMK1kt0Jtth15Bzx3vWPUu8gir4dU8uL1icg=s88-c-k-c0xffffffff-no-rj-mo"
-                    },
-                    "medium": {
-                        "url": "https://yt3.ggpht.com/b53AyTQdjkbwGMJJbOoph7dXhEzavqDGykGKd_aMK1kt0Jtth15Bzx3vWPUu8gir4dU8uL1icg=s240-c-k-c0xffffffff-no-rj-mo"
-                    },
-                    "high": {
-                        "url": "https://yt3.ggpht.com/b53AyTQdjkbwGMJJbOoph7dXhEzavqDGykGKd_aMK1kt0Jtth15Bzx3vWPUu8gir4dU8uL1icg=s800-c-k-c0xffffffff-no-rj-mo"
-                    }
-                },
-                "channelTitle": "행복지수 103%",
-                "liveBroadcastContent": "none",
-                "publishTime": "2022-11-11T08:52:30Z"
-            }
-        },
+
         {
             "kind": "youtube#searchResult",
             "etag": "4gAYNpcsIfU8JphREuAQTPVRnZk",

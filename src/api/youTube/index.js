@@ -1,9 +1,17 @@
-// import { instance } from "..";
-import axios from "axios";
+import { instance } from "..";
 
-export const searchList = async () => {
-    const url = `/data/search.json`;
-    const response = axios.get(url).then((res) => {
+export const searchList = async (keyword) => {
+    console.log(keyword);
+    const url = `/search?part=snippet&maxResults=25&q=${keyword}&key=${process.env.REACT_APP_YOUTUBE_KEY}`;
+    const response = await instance.get(url).then((res) => {
+        return res.data.items;
+    });
+    return response;
+};
+
+export const popularList = async () => {
+    const url = `videos?part=snippet&chart=mostPopular&maxResults=25&key=${process.env.REACT_APP_YOUTUBE_KEY}`;
+    const response = await instance.get(url).then((res) => {
         return res.data.items;
     });
     return response;
