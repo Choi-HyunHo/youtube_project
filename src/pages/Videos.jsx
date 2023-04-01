@@ -3,13 +3,22 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { searchList, popularList } from "../api/youTube";
 import VideoCard from "../components/common/VideoCard";
+import axios from "axios";
 
 const Videos = () => {
     const { keyword } = useParams();
 
-    const { data, isLoading } = useQuery(["videos", keyword], () =>
-        keyword ? searchList(keyword) : popularList()
-    );
+    // 실제로 사용할 코드
+    // const { data, isLoading } = useQuery(["videos", keyword], () =>
+    //     keyword ? searchList(keyword) : popularList()
+    // );
+
+    // test code
+    const { data, isLoading } = useQuery(["videos", keyword], () => {
+        return axios
+            .get(`/data/${keyword ? "search" : "popular"}.json`)
+            .then((res) => res.data.items);
+    });
 
     return (
         <>

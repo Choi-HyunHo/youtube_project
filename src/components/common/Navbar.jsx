@@ -25,13 +25,16 @@ const Navbar = () => {
             </Link>
             <form className="w-full flex justify-center">
                 <input
-                    className="w-5/6 p-2 outline-none bg-black text-gray-50"
+                    className="w-5/6 p-2 outline-none bg-black text-gray-50 rounded-l-lg"
                     value={value}
                     type="text"
                     onChange={(e) => setValue(e.target.value)}
                     placeholder="Search..."
                 />
-                <button className="px-4 bg-zinc-600" onClick={handleSubmit}>
+                <button
+                    className="px-4 bg-zinc-600 rounded-r-lg"
+                    onClick={handleSubmit}
+                >
                     <BsSearch />
                 </button>
             </form>

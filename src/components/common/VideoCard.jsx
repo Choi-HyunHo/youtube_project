@@ -4,7 +4,7 @@ import { formatAgo } from "../../util/data";
 const VideoCard = ({ video }) => {
     const { title, thumbnails, channelTitle, publishedAt } = video.snippet;
     return (
-        <li>
+        <span>
             <img className="w-full" src={thumbnails.medium.url} alt={title} />
             <div>
                 <p className="font-semibold my-2 line-clamp-2">{title}</p>
@@ -13,7 +13,7 @@ const VideoCard = ({ video }) => {
                     {formatAgo(publishedAt, "ko")}
                 </p>
             </div>
-        </li>
+        </span>
     );
 };
 
