@@ -1,7 +1,18 @@
 import React from "react";
+import { formatAgo } from "../../util/data";
 
 const VideoCard = ({ video }) => {
-    return <span>{video.snippet.title}</span>;
+    const { title, thumbnails, channelTitle, publishedAt } = video.snippet;
+    return (
+        <li>
+            <img src={thumbnails.medium.url} alt={title} />
+            <div>
+                <p>{title}</p>
+                <p>{channelTitle}</p>
+                <p>{formatAgo(publishedAt, "ko")}</p>
+            </div>
+        </li>
+    );
 };
 
 export default VideoCard;
