@@ -1,50 +1,35 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import VideoCard from "../components/common/VideoCard";
+import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
+import RelatedVideo from "../components/common/RelatedVideo";
 import axios from "axios";
+import DetailInfo from "../components/common/DetailInfo";
 
 const VideoDetail = () => {
 	const { id } = useParams();
 
-	const { data, isLoading } = useQuery("related", () => {
-		return axios.get(`/data/related.json`).then((res) => res.data.items);
+	const { data } = useQuery("detail", () => {
+		return axios
+			.get(`/data/channel.json`)
+			.then((res) => res.data.items[0].snippet);
 	});
 
-	const navigation = useNavigate();
-
-	const handleRelated = (id) => {
-		navigation(`/videos/watch/${id}`);
-	};
-
 	return (
-		<div className="flex gap-12">
-			<div className="w-full">
+		<div className="flex flex-col lg:flex-row">
+			<div className="basis-4/6">
 				<iframe
-					width="90%"
-					height="800"
+					width="100%"
+					height="640"
 					src={`https://www.youtube.com/embed/${id}`}
 					title="YouTube video player"
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-					allowfullscreen
+					// allowfullscreen
 				/>
-
-				<div>1111</div>
+				<DetailInfo data={data} />
 			</div>
 
-			<div className="basis-2/12">
-				{data && (
-					<ul>
-						{data.map((video, index) => (
-							<li
-								onClick={() => handleRelated(video.id.videoId)}
-								key={index}
-							>
-								<VideoCard video={video} />
-							</li>
-						))}
-					</ul>
-				)}
+			<div className="basis-2/6">
+				<RelatedVideo id={id} />
 			</div>
 		</div>
 	);
