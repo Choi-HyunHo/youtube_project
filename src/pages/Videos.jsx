@@ -8,6 +8,8 @@ import axios from "axios";
 const Videos = () => {
 	const { keyword } = useParams();
 
+	console.log(keyword);
+
 	// 실제로 사용할 코드
 	// const { data, isLoading } = useQuery(["videos", keyword], () =>
 	//     keyword ? searchList(keyword) : popularList()
@@ -19,11 +21,12 @@ const Videos = () => {
 			.get(`/data/${keyword ? "search" : "popular"}.json`)
 			.then((res) => res.data.items);
 	});
+	console.log(data);
 
 	const navigation = useNavigate();
 
-	const handelDetail = (id) => {
-		navigation(`/videos/watch/${id}`);
+	const handelDetail = (id, channelId) => {
+		navigation(`/videos/watch/${id}`, { state: { channelId } });
 	};
 
 	return (
@@ -32,7 +35,17 @@ const Videos = () => {
 			{data && (
 				<ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-2 gap-y-4">
 					{data.map((video, index) => (
-						<li onClick={() => handelDetail(video.id)} key={index}>
+						<li
+							onClick={() =>
+								handelDetail(
+									keyword === undefined
+										? video.id
+										: video.id.videoId,
+									video.snippet.channelId
+								)
+							}
+							key={index}
+						>
 							<VideoCard video={video} />
 						</li>
 					))}

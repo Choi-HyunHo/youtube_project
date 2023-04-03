@@ -1,7 +1,6 @@
 import React from "react";
 
 const DetailInfo = ({ data }) => {
-	console.log(data);
 	return (
 		<>
 			{data && (
