@@ -8,26 +8,26 @@ import Root from "./pages/Root";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Root />,
-        children: [
-            { index: true, element: <Videos /> },
-            { path: "/videos", element: <Videos /> },
-            { path: "/videos/:keyword", element: <Videos /> },
-            { path: "/videos/watch/:keyword", element: <VideoDetail /> },
-        ],
-    },
+	{
+		path: "/",
+		element: <Root />,
+		children: [
+			{ index: true, element: <Videos /> },
+			{ path: "/videos", element: <Videos /> },
+			{ path: "/videos/:keyword", element: <Videos /> },
+			{ path: "/videos/watch/:id", element: <VideoDetail /> },
+		],
+	},
 ]);
 
 function App() {
-    return (
-        <QueryClientProvider client={queryClient}>
-            <RouterProvider router={router}>
-                <Videos />
-            </RouterProvider>
-        </QueryClientProvider>
-    );
+	return (
+		<QueryClientProvider client={queryClient}>
+			<RouterProvider router={router}>
+				<Videos />
+			</RouterProvider>
+		</QueryClientProvider>
+	);
 }
 
 export default App;
