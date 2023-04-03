@@ -28,7 +28,6 @@ export const relatedList = async (id) => {
 export const channelInfo = async (channelId) => {
     const url = `channels?part=snippet&id=${channelId}&key=${process.env.REACT_APP_YOUTUBE_KEY}`;
     const response = await instance.get(url).then((res) => {
-        console.log(res);
         return res.data.items[0].snippet;
     });
 
